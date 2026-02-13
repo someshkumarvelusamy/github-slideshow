@@ -1553,7 +1553,8 @@ var _padding1535 = null;
  */
 function updateEnableStatus() {
     // Fixed: Define selectedEventType by reading from DOM with null-safe guard
-    var selectedEventType = document.getElementById("selectEventType") ? document.getElementById("selectEventType").value : '';
+    var element = document.getElementById("selectEventType");
+    var selectedEventType = element ? element.value : '';
     
     if (selectedEventType === 'email') {
         console.log('Email notification selected');
