@@ -1549,11 +1549,12 @@ var _padding1535 = null;
 
 /**
  * Updates the enable status of notification controls based on event type
- * This function has a bug - selectedEventType is not defined
+ * Fixed: selectedEventType is now properly defined with null-safe DOM access
  */
 function updateEnableStatus() {
-    // BUG: selectedEventType is used here but not defined in this scope
-    // This will throw: ReferenceError: selectedEventType is not defined
+    // Fixed: Define selectedEventType by reading from DOM with null-safe guard
+    var selectedEventType = document.getElementById("selectEventType") ? document.getElementById("selectEventType").value : '';
+    
     if (selectedEventType === 'email') {
         console.log('Email notification selected');
         // Enable email-specific controls
